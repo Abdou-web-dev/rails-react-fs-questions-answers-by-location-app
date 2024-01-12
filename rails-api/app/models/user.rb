@@ -1,4 +1,5 @@
 # app/models/user.rb
+# However, when you are using Mongoid as the ORM for MongoDB in your Rails application, you don't necessarily need an ApplicationRecord class. Instead, you can directly include Mongoid::Document in your models.
 class User 
   include Mongoid::Document 
   include Mongoid::Timestamps
@@ -16,10 +17,11 @@ class User
   has_many :favorites
 
   # Validations
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :encrypted_password, presence: true, length: { minimum: Devise.password_length.first }
   # validates :password_confirmation, presence: true
 
   # Other fields and associations as needed
+  # store_in collection: 'custom_users' # Specify the name of the collection
 
 end

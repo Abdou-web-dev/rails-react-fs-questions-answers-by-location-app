@@ -28669,3 +28669,441 @@ MONGODB | localhost:27017 req:5773 | rails_dabadoc_backend_development.find | SU
 Completed 422 Unprocessable Entity in 316ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 25.2ms | Allocations: 3493)
 
 
+Started POST "/users/sign_in" for ::1 at 2024-01-12 12:59:37 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | There was a change in the members of the 'Unknown' topology.
+MONGODB | Server localhost:27017 initializing.
+MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:27017] servers=[#<Server address=localhost:27017 UNKNOWN>]>
+MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
+MONGODB | Topology type 'Unknown' changed to type 'Single'.
+MONGODB | localhost:27017 req:6 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:6 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.015s
+Completed 404 Not Found in 192ms (ActiveRecord: 0.0ms | MongoDB: 15.3ms | Allocations: 10184)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 12:59:41 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:7 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:7 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+Completed 404 Not Found in 25ms (ActiveRecord: 0.0ms | MongoDB: 20.5ms | Allocations: 974)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 12:59:42 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:8 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:8 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.019s
+Completed 404 Not Found in 23ms (ActiveRecord: 0.0ms | MongoDB: 19.1ms | Allocations: 962)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+MONGODB | Server description for localhost:27017 changed from 'standalone' to 'standalone' [awaited].
+MONGODB | There was a change in the members of the 'Single' topology.
+Started POST "/users" for ::1 at 2024-01-12 12:59:51 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:10 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:10 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.019s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 422 Unprocessable Entity in 156ms (Views: 13.0ms | ActiveRecord: 0.0ms | MongoDB: 19.1ms | Allocations: 24246)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:05:28 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:45 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:45 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.018s
+Completed 404 Not Found in 32ms (ActiveRecord: 0.0ms | MongoDB: 18.2ms | Allocations: 966)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:05:29 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:46 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x21940 type=uuid data=0x56b4d886bb7c4efe...>}}
+MONGODB | localhost:27017 req:46 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.025s
+Completed 404 Not Found in 29ms (ActiveRecord: 0.0ms | MongoDB: 25.0ms | Allocations: 960)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:48:26 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:304 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:304 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+Completed 404 Not Found in 24ms (ActiveRecord: 0.0ms | MongoDB: 19.6ms | Allocations: 988)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:48:27 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:305 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:305 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.021s
+Completed 404 Not Found in 25ms (ActiveRecord: 0.0ms | MongoDB: 21.4ms | Allocations: 960)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2024-01-12 13:48:33 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:307 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:307 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.015s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 22ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 15.2ms | Allocations: 3138)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:48:47 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:309 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:309 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.022s
+Completed 404 Not Found in 26ms (ActiveRecord: 0.0ms | MongoDB: 22.3ms | Allocations: 959)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:48:49 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:310 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:310 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+Completed 404 Not Found in 21ms (ActiveRecord: 0.0ms | MongoDB: 16.9ms | Allocations: 960)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:48:57 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:312 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:312 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+Completed 404 Not Found in 17ms (ActiveRecord: 0.0ms | MongoDB: 12.9ms | Allocations: 960)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 13:49:36 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:317 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:317 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+Completed 404 Not Found in 20ms (ActiveRecord: 0.0ms | MongoDB: 17.2ms | Allocations: 960)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2024-01-12 13:49:43 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:318 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:318 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.018s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 26ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 17.6ms | Allocations: 3136)
+
+
+Started POST "/users" for ::1 at 2024-01-12 13:49:44 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:320 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:320 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 17.2ms | Allocations: 3142)
+
+
+Started POST "/users" for ::1 at 2024-01-12 13:49:45 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:321 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:321 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 23ms (Views: 1.2ms | ActiveRecord: 0.0ms | MongoDB: 13.3ms | Allocations: 3142)
+
+
+Started POST "/users" for ::1 at 2024-01-12 13:49:50 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:322 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:322 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 20ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 12.3ms | Allocations: 3142)
+
+
+Started POST "/users" for ::1 at 2024-01-12 13:49:51 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:323 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x34880 type=uuid data=0x5e93abd9373f4a47...>}}
+MONGODB | localhost:27017 req:323 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 19ms (Views: 0.8ms | ActiveRecord: 0.0ms | MongoDB: 12.9ms | Allocations: 3142)
+
+
+Started POST "/users" for ::1 at 2024-01-12 14:57:27 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:729 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x52900 type=uuid data=0x4d75de5b8cab4d5b...>}}
+MONGODB | localhost:27017 req:729 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.023s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+Completed 422 Unprocessable Entity in 72ms (Views: 2.8ms | ActiveRecord: 0.0ms | MongoDB: 23.0ms | Allocations: 3164)
+
+
+Started POST "/users" for ::1 at 2024-01-12 14:57:28 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:730 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x52900 type=uuid data=0x4d75de5b8cab4d5b...>}}
+MONGODB | localhost:27017 req:730 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.001s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 10ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 1.1ms | Allocations: 3135)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 14:57:40 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:732 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x52900 type=uuid data=0x4d75de5b8cab4d5b...>}}
+MONGODB | localhost:27017 req:732 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.024s
+Completed 404 Not Found in 29ms (ActiveRecord: 0.0ms | MongoDB: 24.0ms | Allocations: 959)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>""}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:41:37 +0100
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:41:40 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"frggr@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"frggr@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:997 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"frggr@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:997 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.025s
+Completed 404 Not Found in 41ms (ActiveRecord: 0.0ms | MongoDB: 24.6ms | Allocations: 1229)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>"frggr@gmail.com"}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"frggr@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"frggr@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:998 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"frggr@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:998 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+Completed 404 Not Found in 19ms (ActiveRecord: 0.0ms | MongoDB: 13.3ms | Allocations: 1201)
+
+
+  
+Mongoid::Errors::DocumentNotFound (
+message:
+  Document not found for class User with attributes {:email=>"frggr@gmail.com"}.
+summary:
+  When calling User.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.
+resolution:
+  Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause nil to be returned instead of raising this error.):
+  
+app/controllers/users/sessions_controller.rb:6:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:43:06 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"safeer@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"safeer@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1008 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"safeer@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1008 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.015s
+Completed 500 Internal Server Error in 282ms (ActiveRecord: 3.8ms | MongoDB: 15.3ms | Allocations: 5584)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/sessions_controller.rb:9:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:43:12 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"safeer@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"safeer@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1009 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"safeer@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1009 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.018s
+Completed 500 Internal Server Error in 392ms (ActiveRecord: 0.1ms | MongoDB: 18.5ms | Allocations: 1107)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/sessions_controller.rb:9:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:43:27 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1012 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-hafidi@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1012 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.014s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 401 Unauthorized in 207ms (Views: 1.9ms | ActiveRecord: 0.0ms | MongoDB: 13.8ms | Allocations: 1239)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:43:31 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1013 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-hafidi@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1013 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 209ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 11.9ms | Allocations: 1041)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:44:16 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"baboo@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"baboo@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1019 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"baboo@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1019 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.025s
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 0.2ms | MongoDB: 25.0ms | Allocations: 1100)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/sessions_controller.rb:9:in `create'
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:44:24 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1020 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-hafidi@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1020 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.011s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 401 Unauthorized in 207ms (Views: 0.8ms | ActiveRecord: 0.0ms | MongoDB: 11.2ms | Allocations: 1045)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:44:29 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mariem-hafidi@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1022 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-hafidi@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1022 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 207ms (Views: 0.8ms | ActiveRecord: 0.0ms | MongoDB: 12.9ms | Allocations: 1042)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:44:56 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"hagetta@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"hagetta@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1026 conn:1:1 sconn:255 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hagetta@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x73440 type=uuid data=0x1bee4818131d4e62...>}}
+MONGODB | localhost:27017 req:1026 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.1ms | MongoDB: 19.9ms | Allocations: 1095)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/sessions_controller.rb:9:in `create'
+Started POST "/users" for ::1 at 2024-01-12 15:48:39 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | MongoDB: 0.0ms | Allocations: 489)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/registrations_controller.rb:8:in `create'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
