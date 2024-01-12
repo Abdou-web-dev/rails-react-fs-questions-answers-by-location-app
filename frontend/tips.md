@@ -1,0 +1,1 @@
+# Yes, the authentication system you've implemented using Devise and generating a unique string token upon login and signup is a form of token-based authentication. The generated token serves as a means of verifying the user's identity in subsequent requests.
