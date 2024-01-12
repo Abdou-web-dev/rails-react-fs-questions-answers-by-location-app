@@ -29107,3 +29107,329 @@ ActiveRecord::StatementInvalid (Could not find table 'users'):
 app/controllers/users/registrations_controller.rb:8:in `create'
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2024-01-12 15:51:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"toto111@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"toto111@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 6.1ms | MongoDB: 0.0ms | Allocations: 3835)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  
+app/controllers/users/registrations_controller.rb:8:in `create'
+Started POST "/users" for ::1 at 2024-01-12 15:52:11 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"toto111@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"toto111@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | There was a change in the members of the 'Unknown' topology.
+MONGODB | Server localhost:27017 initializing.
+MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:27017] servers=[#<Server address=localhost:27017 UNKNOWN>]>
+MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
+MONGODB | Topology type 'Unknown' changed to type 'Single'.
+MONGODB | localhost:27017 req:6 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"toto111@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:6 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.022s
+MONGODB | localhost:27017 req:7 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"toto111@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:7 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.018s
+MONGODB | localhost:27017 req:8 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a1521d7a18fb23584917f0'), "email"=>"toto111@gmail.com", "encrypted_password"=>"$2a$12$hRrtmW0U4opOoivUMIti5eULn5cvPKM0IaipaDrOGWmoQYLwvBLXa", "authentication_token"=>"", "upd...
+MONGODB | localhost:27017 req:8 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.025s
+MONGODB | localhost:27017 req:9 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a1521d7a18fb23584917f0')}, "u"=>{"$set"=>{"authentication_token"=>"4fcb575ee7dca64fd80962365d69b3002fb6b405b5468edc3ba3d468e1b7fb2c", "updated_at"=>2024-01-12 14:52:13.50...
+MONGODB | localhost:27017 req:9 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.047s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.96ms)
+Completed 201 Created in 416ms (Views: 4.8ms | ActiveRecord: 0.0ms | MongoDB: 111.8ms | Allocations: 30041)
+
+
+MONGODB | Server description for localhost:27017 changed from 'standalone' to 'standalone' [awaited].
+MONGODB | There was a change in the members of the 'Single' topology.
+Started POST "/users" for ::1 at 2024-01-12 15:52:27 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:11 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"bajii@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:11 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.024s
+MONGODB | localhost:27017 req:12 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"bajii@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:12 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+MONGODB | localhost:27017 req:13 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a1522f7a18fb23584917f1'), "email"=>"bajii@gmail.com", "encrypted_password"=>"$2a$12$SXeliPVZjI5R7KmbV1..q.m6IpyRsxh/OcJH1XmVMiX8eTsM5al5e", "authentication_token"=>"", "updat...
+MONGODB | localhost:27017 req:13 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.013s
+MONGODB | localhost:27017 req:14 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a1522f7a18fb23584917f1')}, "u"=>{"$set"=>{"authentication_token"=>"e6f4285bb4d28e02775154f4c0e09cedff561800dc3fa1a7449add238457e81c", "updated_at"=>2024-01-12 14:52:31.15...
+MONGODB | localhost:27017 req:14 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.025s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.58ms)
+Completed 201 Created in 455ms (Views: 1.6ms | ActiveRecord: 0.0ms | MongoDB: 82.2ms | Allocations: 23759)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-01-12 15:52:43 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"bajii@gmail.com", "password"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:17 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"bajii@gmail.com"}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:17 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.014s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.04ms)
+Completed 201 Created in 369ms (Views: 2.2ms | ActiveRecord: 0.0ms | MongoDB: 14.2ms | Allocations: 1559)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:15:11 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"hdhdddgmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"hdhdddgmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:152 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhdddgmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:152 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.016s
+MONGODB | localhost:27017 req:153 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhdddgmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:153 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.024s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 378ms (Views: 1.3ms | ActiveRecord: 0.0ms | MongoDB: 39.9ms | Allocations: 24134)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:15:25 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"hdhddd@gmail.", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"hdhddd@gmail.", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:156 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@gmail."}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:156 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.015s
+MONGODB | localhost:27017 req:157 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@gmail."}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:157 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.024s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 422 Unprocessable Entity in 352ms (Views: 2.8ms | ActiveRecord: 0.0ms | MongoDB: 39.5ms | Allocations: 2604)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:15:30 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"hdhddd@.", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"hdhddd@.", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:158 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@."}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:158 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.011s
+MONGODB | localhost:27017 req:159 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@."}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:159 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 273ms (Views: 0.7ms | ActiveRecord: 0.0ms | MongoDB: 23.2ms | Allocations: 2593)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:15:33 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"hdhddd@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"hdhddd@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:160 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:160 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.023s
+MONGODB | localhost:27017 req:161 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"hdhddd@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:161 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.023s
+MONGODB | localhost:27017 req:162 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a157957a18fb23584917f2'), "email"=>"hdhddd@gmail.com", "encrypted_password"=>"$2a$12$gJ3dycxI1V6G.tPaxGmxJu0WPG2iHNJEEWkzDFpRS2tVsfB/z.ljm", "authentication_token"=>"", "upda...
+MONGODB | localhost:27017 req:162 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.023s
+MONGODB | localhost:27017 req:163 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a157957a18fb23584917f2')}, "u"=>{"$set"=>{"authentication_token"=>"549c40548187f9e70832836e5493aacae9f6b4feeb88084f9a5287f5317080e6", "updated_at"=>2024-01-12 15:15:34.00...
+MONGODB | localhost:27017 req:163 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.022s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.59ms)
+Completed 201 Created in 379ms (Views: 1.3ms | ActiveRecord: 0.0ms | MongoDB: 91.3ms | Allocations: 4596)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:15:52 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efef@gmail.c", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efef@gmail.c", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:166 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efef@gmail.c"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:166 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.025s
+MONGODB | localhost:27017 req:167 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efef@gmail.c"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:167 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+MONGODB | localhost:27017 req:168 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a157a87a18fb23584917f3'), "email"=>"efef@gmail.c", "encrypted_password"=>"$2a$12$nwhpYpBSiRo4qH/SN6WQiOPj9FmdkOqo1486jWW1ds3D1fXpWVk8S", "authentication_token"=>"", "updated_...
+MONGODB | localhost:27017 req:168 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.012s
+MONGODB | localhost:27017 req:169 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a157a87a18fb23584917f3')}, "u"=>{"$set"=>{"authentication_token"=>"3d9d4866a30895e36d042d353c31d1f25ba558edbe98ef17824f0c4cd968b56a", "updated_at"=>2024-01-12 15:15:52.53...
+MONGODB | localhost:27017 req:169 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.011s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.69ms)
+Completed 201 Created in 274ms (Views: 1.5ms | ActiveRecord: 0.0ms | MongoDB: 61.6ms | Allocations: 4308)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:16:41 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefef@gma", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefef@gma", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:175 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefef@gma"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:175 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+MONGODB | localhost:27017 req:176 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefef@gma"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:176 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.011s
+MONGODB | localhost:27017 req:177 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a157d97a18fb23584917f4'), "email"=>"efefef@gma", "encrypted_password"=>"$2a$12$unbib6nGIZvpLfL9f.K1tOJd.cCb2tCfBkyILVVI8g/ou7rKdPGdi", "authentication_token"=>"", "updated_at...
+MONGODB | localhost:27017 req:177 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.012s
+MONGODB | localhost:27017 req:178 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a157d97a18fb23584917f4')}, "u"=>{"$set"=>{"authentication_token"=>"e6bba0b7754c28eb1fb1ff0037d2cbb0f26978c57dbe93e27486180062e61fb9", "updated_at"=>2024-01-12 15:16:41.43...
+MONGODB | localhost:27017 req:178 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.025s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.07ms)
+Completed 201 Created in 274ms (Views: 2.1ms | ActiveRecord: 0.0ms | MongoDB: 68.4ms | Allocations: 4294)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:16:59 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:181 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:181 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.018s
+MONGODB | localhost:27017 req:182 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:182 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.027s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 348ms (Views: 1.0ms | ActiveRecord: 0.0ms | MongoDB: 45.2ms | Allocations: 2904)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:02 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Started POST "/users" for ::1 at 2024-01-12 16:17:02 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:183 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:183 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.022s
+MONGODB | localhost:27017 req:184 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:184 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 315ms (Views: 0.7ms | ActiveRecord: 0.0ms | MongoDB: 34.2ms | Allocations: 4273)
+
+
+MONGODB | localhost:27017 req:185 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:185 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+MONGODB | localhost:27017 req:186 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:186 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 284ms (Views: 0.8ms | ActiveRecord: 0.0ms | MongoDB: 29.4ms | Allocations: 5803)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:05 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:188 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:188 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.015s
+MONGODB | localhost:27017 req:189 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:189 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 304ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 27.0ms | Allocations: 3115)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:07 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:190 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:190 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+MONGODB | localhost:27017 req:191 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:191 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 323ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 28.3ms | Allocations: 2907)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:08 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Started POST "/users" for ::1 at 2024-01-12 16:17:08 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:192 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:192 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.016s
+MONGODB | localhost:27017 req:193 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:193 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 379ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 28.1ms | Allocations: 4265)
+
+
+MONGODB | localhost:27017 req:194 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:194 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.017s
+MONGODB | localhost:27017 req:195 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:195 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 272ms (Views: 0.6ms | ActiveRecord: 0.0ms | MongoDB: 29.6ms | Allocations: 5801)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:09 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:196 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:196 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+MONGODB | localhost:27017 req:197 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:197 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 299ms (Views: 0.7ms | ActiveRecord: 0.0ms | MongoDB: 33.3ms | Allocations: 2904)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:09 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Started POST "/users" for ::1 at 2024-01-12 16:17:10 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:198 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:198 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.013s
+MONGODB | localhost:27017 req:199 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:199 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.026s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 284ms (Views: 0.7ms | ActiveRecord: 0.0ms | MongoDB: 38.8ms | Allocations: 4266)
+
+
+MONGODB | localhost:27017 req:200 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:200 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+MONGODB | localhost:27017 req:201 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:201 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 230ms (Views: 0.7ms | ActiveRecord: 0.0ms | MongoDB: 23.9ms | Allocations: 5801)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:17:11 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efefefef@dd", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efefefef@dd", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:202 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@dd"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:202 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.020s
+MONGODB | localhost:27017 req:203 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efefefef@dd"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:203 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.021s
+MONGODB | localhost:27017 req:204 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a157f87a18fb23584917f5'), "email"=>"efefefef@dd", "encrypted_password"=>"$2a$12$A2vY2JEIealjzNmdVaxd9eAJsL9O3.tUoQ9Pb/d7tO0sw6FfwBaFG", "authentication_token"=>"", "updated_a...
+MONGODB | localhost:27017 req:204 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.022s
+MONGODB | localhost:27017 req:205 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a157f87a18fb23584917f5')}, "u"=>{"$set"=>{"authentication_token"=>"0edfe99ade5d4cdbed334d42e923b3c98149512ca6c95beb5ba84f55f341fa4f", "updated_at"=>2024-01-12 15:17:12.41...
+MONGODB | localhost:27017 req:205 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.021s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.94ms)
+Completed 201 Created in 396ms (Views: 4.4ms | ActiveRecord: 0.0ms | MongoDB: 82.6ms | Allocations: 4296)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:18:08 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"ezfdefef@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"ezfdefef@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:212 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"ezfdefef@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:212 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.002s
+MONGODB | localhost:27017 req:213 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"ezfdefef@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:213 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 317ms (Views: 0.8ms | ActiveRecord: 0.0ms | MongoDB: 14.1ms | Allocations: 2739)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:28:10 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:274 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>""}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:274 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.021s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 211ms (Views: 0.9ms | ActiveRecord: 0.0ms | MongoDB: 20.9ms | Allocations: 2990)
+
+
+Started POST "/users" for ::1 at 2024-01-12 16:45:51 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"reda@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"reda@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:381 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"reda@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:381 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.016s
+MONGODB | localhost:27017 req:382 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"reda@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x31700 type=uuid data=0x9d6871acf94e4ff4...>}}
+MONGODB | localhost:27017 req:382 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.012s
+MONGODB | localhost:27017 req:383 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a15eaf7a18fb23584917f6'), "email"=>"reda@gmail.com", "encrypted_password"=>"$2a$12$DuJMTS6vx0hY9uyf71Bv9uhMsVWULuPKX9UlVevjP7.I.tCQnBUOa", "authentication_token"=>"", "update...
+MONGODB | localhost:27017 req:383 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.012s
+MONGODB | localhost:27017 req:384 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a15eaf7a18fb23584917f6')}, "u"=>{"$set"=>{"authentication_token"=>"f2670d2c78b8606341e7c0350e2dc7d67a4ed8ee6d5b047e06e81fb90d11d60a", "updated_at"=>2024-01-12 15:45:51.64...
+MONGODB | localhost:27017 req:384 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.024s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.73ms)
+Completed 201 Created in 333ms (Views: 1.9ms | ActiveRecord: 0.0ms | MongoDB: 64.6ms | Allocations: 4302)
+
+
+Started POST "/users" for ::1 at 2024-01-12 20:39:49 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"mariem-khay93@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"mariem-khay93@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1786 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-khay93@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x121000 type=uuid data=0x383fc5edae1f4090...>}}
+MONGODB | localhost:27017 req:1786 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.021s
+MONGODB | localhost:27017 req:1787 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"mariem-khay93@gmail.com"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x121000 type=uuid data=0x383fc5edae1f4090...>}}
+MONGODB | localhost:27017 req:1787 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.026s
+MONGODB | localhost:27017 req:1788 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a195867a18fb23584917f7'), "email"=>"mariem-khay93@gmail.com", "encrypted_password"=>"$2a$12$EWY6fBrbSuanCubYtNkIk.Ewu0vW7vTiFqspfzcgtQ57bghQC5iIS", "authentication_token"=>""...
+MONGODB | localhost:27017 req:1788 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.025s
+MONGODB | localhost:27017 req:1789 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a195867a18fb23584917f7')}, "u"=>{"$set"=>{"authentication_token"=>"686fdb26af4aa8d252f74c8b88590a99b9faf011a4fd28f28b80fe15114d8ed8", "updated_at"=>2024-01-12 19:39:50.30...
+MONGODB | localhost:27017 req:1789 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.027s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.01ms)
+Completed 201 Created in 364ms (Views: 3.0ms | ActiveRecord: 0.0ms | MongoDB: 99.2ms | Allocations: 4329)
+
+
+Started POST "/users" for ::1 at 2024-01-12 20:52:03 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"efef@gmail.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"efef@gmail.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+MONGODB | localhost:27017 req:1863 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efef@gmail.co"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x121000 type=uuid data=0x383fc5edae1f4090...>}}
+MONGODB | localhost:27017 req:1863 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.014s
+MONGODB | localhost:27017 req:1864 conn:1:1 sconn:271 | rails_dabadoc_backend_development.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"efef@gmail.co"}, "limit"=>1, "projection"=>{"_id"=>1}, "$db"=>"rails_dabadoc_backend_development", "lsid"=>{"id"=><BSON::Binary:0x121000 type=uuid data=0x383fc5edae1f4090...>}}
+MONGODB | localhost:27017 req:1864 | rails_dabadoc_backend_development.find | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 req:1865 conn:1:1 sconn:271 | rails_dabadoc_backend_development.insert | STARTED | {"insert"=>"users", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('65a198637a18fb23584917f8'), "email"=>"efef@gmail.co", "encrypted_password"=>"$2a$12$MlgyolJsMISRoRcTh2L4o.JcHhUehl3h.WV4h3iriDxhMNORbsYNK", "authentication_token"=>"", "updated...
+MONGODB | localhost:27017 req:1865 | rails_dabadoc_backend_development.insert | SUCCEEDED | 0.000s
+MONGODB | localhost:27017 req:1866 conn:1:1 sconn:271 | rails_dabadoc_backend_development.update | STARTED | {"update"=>"users", "ordered"=>true, "updates"=>[{"q"=>{"_id"=>BSON::ObjectId('65a198637a18fb23584917f8')}, "u"=>{"$set"=>{"authentication_token"=>"36b81c014922bf61bf12ddc94e27d95a32e1d7f549bea75b0d83ea6ccf0364aa", "updated_at"=>2024-01-12 19:52:03.99...
+MONGODB | localhost:27017 req:1866 | rails_dabadoc_backend_development.update | SUCCEEDED | 0.001s
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.54ms)
+Completed 201 Created in 239ms (Views: 1.3ms | ActiveRecord: 0.0ms | MongoDB: 16.5ms | Allocations: 4300)
+
+
