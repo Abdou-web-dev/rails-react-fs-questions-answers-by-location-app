@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface AuthContextProps {
   userToken: string;
@@ -11,6 +11,7 @@ interface AuthContextProps {
     passwordConfirmation: string
   ) => Promise<void>;
   // subscribeToAuthChanges: (callback: () => void) => void;
+  isAuthenticated: boolean;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -21,6 +22,7 @@ const AuthContext = createContext<AuthContextProps>({
     throw new Error("register function not yet implemented");
   },
   // subscribeToAuthChanges: () => {},
+  isAuthenticated: false,
 });
 
 export const AuthProvider = ({
@@ -30,7 +32,10 @@ export const AuthProvider = ({
 }) => {
   const [userToken, setUserToken] = useState<string>("");
   const storedToken = localStorage.getItem("userToken");
-  const [subscribers, setSubscribers] = useState<(() => void)[]>([]);
+  // const [subscribers, setSubscribers] = useState<(() => void)[]>([]);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Use null as initial loading state
+  // It seems like the issue might be related to the initial state of the isAuthenticated variable in the AuthProvider. When the page is refreshed, the entire React application is re-rendered, and the state is reset to its initial values.
+  // To address this issue, you can consider checking the localStorage for the user token during the initialization of the isAuthenticated state in your AuthProvider. If there's a token in the localStorage, set isAuthenticated to true. This way, even if the page is refreshed, the isAuthenticated state will be correctly initialized based on the stored token.
 
   const login = async (email: string, password: string) => {
     try {
@@ -56,7 +61,7 @@ export const AuthProvider = ({
       localStorage.setItem("userToken", token);
       const { user } = response?.data;
       localStorage.setItem("user", JSON.stringify(user));
-
+      setIsAuthenticated(true);
       // localStorage.setItem("user", JSON.stringify(user));
       setUserToken(token);
     } catch (error: any) {
@@ -69,7 +74,7 @@ export const AuthProvider = ({
     localStorage.removeItem("userToken");
     // let user = JSON.parse("user");
     localStorage.removeItem("user");
-
+    setIsAuthenticated(false);
     setUserToken("");
   };
 
@@ -102,7 +107,7 @@ export const AuthProvider = ({
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("userToken", token); // Use "userToken" key here
       setUserToken(token);
-
+      setIsAuthenticated(true);
       // Redirect to MainPage or handle the successful creation in your way
     } catch (error) {
       // Handle registration failure, e.g., set an error state
@@ -110,12 +115,35 @@ export const AuthProvider = ({
     }
   };
 
-  return (
-    <AuthContext.Provider value={{ userToken, login, logout, register }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      if (storedToken) {
+        // If a token exists in localStorage, set isAuthenticated to true
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuthentication();
+  }, [storedToken]);
+
+  // In this modification, the isAuthenticated state is initially set to null, indicating that the authentication state is still loading. The children (your application) are only rendered when the isAuthenticated state is either true or false. This should help prevent the brief appearance of the background image during the initial rendering.
+  // . When the page is refreshed, the entire React application is re-rendered, and the state is reset to its initial values. meaning isAuthenticated === null
+  if (isAuthenticated === null) {
+    // Still loading, don't render anything
+    return null;
+  } else {
+    return (
+      <AuthContext.Provider
+        value={{ userToken, login, logout, register, isAuthenticated }}
+      >
+        {children}
+      </AuthContext.Provider>
+    );
+  }
 };
+// This ensures that the application won't render the children until the authentication state is determined, to either true or false, avoiding any unwanted UI glitches during the loading phase.
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -124,3 +152,4 @@ export const useAuth = () => {
   }
   return context;
 };
+// *************
