@@ -1,0 +1,1 @@
+This comprehensive web application, developed with React and Ruby on Rails, empowers users to post location-specific questions and receive responses from nearby users. Users can effortlessly discover questions within their proximity and conveniently bookmark their favorites for easy reference
