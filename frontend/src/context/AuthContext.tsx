@@ -10,6 +10,7 @@ interface AuthContextProps {
     password: string,
     passwordConfirmation: string
   ) => Promise<void>;
+  // subscribeToAuthChanges: (callback: () => void) => void;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -19,6 +20,7 @@ const AuthContext = createContext<AuthContextProps>({
   register: async () => {
     throw new Error("register function not yet implemented");
   },
+  // subscribeToAuthChanges: () => {},
 });
 
 export const AuthProvider = ({
@@ -28,6 +30,7 @@ export const AuthProvider = ({
 }) => {
   const [userToken, setUserToken] = useState<string>("");
   const storedToken = localStorage.getItem("userToken");
+  const [subscribers, setSubscribers] = useState<(() => void)[]>([]);
 
   const login = async (email: string, password: string) => {
     try {
@@ -64,6 +67,9 @@ export const AuthProvider = ({
 
   const logout = () => {
     localStorage.removeItem("userToken");
+    // let user = JSON.parse("user");
+    localStorage.removeItem("user");
+
     setUserToken("");
   };
 
