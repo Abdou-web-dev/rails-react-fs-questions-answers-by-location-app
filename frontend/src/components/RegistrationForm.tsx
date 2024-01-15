@@ -4,8 +4,8 @@ import { z } from "zod";
 import { useAuth } from "../context/AuthContext";
 import "./styles.css";
 
-const emailSchema = z.string().email("Invalid email");
-const passwordSchema = z
+export const emailSchema = z.string().email("Invalid email");
+export const passwordSchema = z
   .string()
   .min(6, "Password must be at least 6 characters")
   .refine(
@@ -42,7 +42,7 @@ export const RegistrationForm = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
-  const { register } = useAuth();
+  const { register, registerError } = useAuth();
   const userToken = localStorage.getItem("userToken");
   const navigate = useNavigate();
   const [emailEmpty, setEmailEmpty] = useState(false);
@@ -161,6 +161,18 @@ export const RegistrationForm = () => {
             {error && (
               <p className="text-red-600 field-error font-lato">{error}</p>
             )}
+
+            {registerError && (
+              <p className="text-red-600 field-error font-lato">
+                {registerError === "Email has already been taken"
+                  ? registerError
+                  : registerError ===
+                    "Registration failed due to an issue with the server"
+                  ? registerError
+                  : ""}
+              </p>
+            )}
+            {/* This approach contributes to a clearer and more user-friendly error messaging system */}
             <label className="block mb-2">Password:</label>
             <input
               type="password"

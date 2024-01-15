@@ -12,6 +12,10 @@ interface AuthContextProps {
   ) => Promise<void>;
   // subscribeToAuthChanges: (callback: () => void) => void;
   isAuthenticated: boolean;
+  loginError: string | null;
+  setLoginError: React.Dispatch<React.SetStateAction<string | null>>;
+  registerError: string | null;
+  setRegisterError: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -23,6 +27,10 @@ const AuthContext = createContext<AuthContextProps>({
   },
   // subscribeToAuthChanges: () => {},
   isAuthenticated: false,
+  loginError: "",
+  setLoginError: () => {},
+  registerError: "",
+  setRegisterError: () => {},
 });
 
 export const AuthProvider = ({
@@ -36,12 +44,13 @@ export const AuthProvider = ({
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Use null as initial loading state
   // It seems like the issue might be related to the initial state of the isAuthenticated variable in the AuthProvider. When the page is refreshed, the entire React application is re-rendered, and the state is reset to its initial values.
   // To address this issue, you can consider checking the localStorage for the user token during the initialization of the isAuthenticated state in your AuthProvider. If there's a token in the localStorage, set isAuthenticated to true. This way, even if the page is refreshed, the isAuthenticated state will be correctly initialized based on the stored token.
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [registerError, setRegisterError] = useState<string | null>(null);
 
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(
         "http://localhost:3000/users/sign_in",
-
         {
           user: {
             email,
@@ -66,6 +75,7 @@ export const AuthProvider = ({
       setUserToken(token);
     } catch (error: any) {
       console.log(error);
+      setLoginError("Login failed. Please check your credentials.");
       // Handle the error or set an error state if needed
     }
   };
@@ -109,9 +119,22 @@ export const AuthProvider = ({
       setUserToken(token);
       setIsAuthenticated(true);
       // Redirect to MainPage or handle the successful creation in your way
-    } catch (error) {
+    } catch (error: any) {
       // Handle registration failure, e.g., set an error state
-      console.log("Registration failed:", error);
+      if (error.response && error.response.data && error.response.data.errors) {
+        const errorMessages = error.response.data.errors;
+        console.log(errorMessages, "errorMessages");
+        // Handle the specific error messages (e.g., duplicate email)
+        // Display error messages to the user
+        setRegisterError(errorMessages[0] && errorMessages[0]);
+      } else {
+        // Handle other types of errors
+        setRegisterError("Registration failed due to an issue with the server");
+        console.log(
+          "Registration failed due to an issue with the server:",
+          error
+        );
+      }
     }
   };
 
@@ -136,7 +159,17 @@ export const AuthProvider = ({
   } else {
     return (
       <AuthContext.Provider
-        value={{ userToken, login, logout, register, isAuthenticated }}
+        value={{
+          userToken,
+          login,
+          logout,
+          register,
+          isAuthenticated,
+          loginError,
+          setLoginError,
+          registerError,
+          setRegisterError,
+        }}
       >
         {children}
       </AuthContext.Provider>
